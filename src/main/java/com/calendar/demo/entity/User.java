@@ -6,19 +6,19 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
-@Getter
-@Setter
-@Table(name = "uses")
+@Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
-    @Column
-    public String username;
-    @Column
-    public String password;
-    @Column
-    public String color;
+    private Long id;
 
+    @Column(unique = true, nullable = false)
+    private String username;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
+    private String color;
 }

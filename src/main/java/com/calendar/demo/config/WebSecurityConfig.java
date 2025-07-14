@@ -20,13 +20,8 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/users/register").permitAll()
                         .anyRequest().authenticated()
-                )
-                .httpBasic(httpBasic -> httpBasic
-                .authenticationEntryPoint(new org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint())
-        )
-                .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 );
+
         return http.build();
     }
 

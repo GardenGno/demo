@@ -6,5 +6,5 @@ import com.calendar.demo.entity.dto.UserDTO;
 import java.util.Optional;
 
 public interface UserService {
-    public void saveUserByDto(UserDTO userDTO);
+    void saveUserByDto(UserDTO userDTO);
 }

@@ -8,18 +8,19 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequiredArgsConstructor
+@RequestMapping("/api/users")
 public class UserController {
-    UserServiceImpl userService;
+    private UserServiceImpl userService;
 
     public UserController(UserServiceImpl userService) {
         this.userService = userService;
     }
 
-    @PostMapping("api/user/register")
+    @PostMapping("/api/users/register")
     public ResponseEntity<Integer> registerUser(@RequestBody UserDTO userDTO){
         userService.saveUserByDto(userDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);

@@ -26,7 +26,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUserByDto(UserDTO userDTO) {
         if(userRepository.findByUsername(userDTO.username()).isEmpty()){
-            User user = new User(userDTO.id(), userDTO.username(), passwordEncoder.encode(userDTO.password()), userDTO.color());
+            User user = new User();
+            user.setUsername(userDTO.username());
+            user.setPassword(passwordEncoder.encode(userDTO.password()));
+            user.setColor(userDTO.color());
             userRepository.save(user);
         }
     }

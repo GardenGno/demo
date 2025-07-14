@@ -3,10 +3,10 @@ package com.calendar.demo.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
-@EqualsAndHashCode
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 @Getter
 @Setter
 @Table(name = "uses")
